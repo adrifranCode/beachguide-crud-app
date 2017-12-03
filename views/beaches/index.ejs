@@ -1,0 +1,48 @@
+<% include ../partials/headerContent%>
+    <div class="container">
+        <a class = "hiddenLink" href="#">Add a new beach!</a>
+            <div class="row wrapper">
+                <% beaches.forEach(function(beaches){ %>
+                    <div class ="col-md-3 col-sm-6 col-lg-6">
+                        <a href = "/ttbeaches2/<%=beaches._id%>">
+                            <div class ="thumbnail">
+                                <img src="<%=beaches.image%>"> 
+                                <div class ="caption">
+                                    <span  class="view"><%=beaches.name%></span>    
+                                </div>
+                                <div class="details">
+                                    <% if(beaches.stars > 5) {  %>
+                                        <%for(let i = 0; i <5; i++){%>
+                                            <span><i class="fa fa-star fa-6 animated bounceIn" aria-hidden="hidden"></i></span>    
+                                        <% } %>
+                                    <% } else {%>
+                                          <%for(let i = 0; i <beaches.stars; i++){%>
+                                              <span><i class="fa fa-star fa-6 animated bounceIn" aria-hidden="hidden"></i></span>    
+                                         <% } %>
+                                      <% } %>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% }); %>  
+             </div>
+    </div>
+    <div class="trigger animated rubberBand">
+        <i class="fa fa-plus fa-5x" id ="fontChange" aria-hidden="true"></i>  
+    </div>
+    <div class="toolbar">
+        <div>
+            <a href="/ttbeaches2/new"class="close" id="link">Add a Beach</a>
+           <% if(!currentUser){ %>
+                <a href="/login"class="close" id="link2">Login</a>
+           <% } else{ %>
+                <a href="/logout"class="close" id="link2">Logout</a>
+             <% } %>
+        </div>
+        <div class="pseudo-circle">
+        <div class="dialog"></div>
+        </div>
+    </div>
+    
+
+<% include ../partials/footerContent %>

@@ -1,0 +1,30 @@
+<% include ../partials/headerNew %>
+
+    <div class = "container">
+        <div class = "row" >
+            <div style = "width:75%; margin: 45px auto;">
+                <h1 style = "text-align:center;">Edit <%= beach.name %></h1>
+                <form name ="myForm" onsubmit = "return validateForm()" action ="/ttbeaches2/<%= beach._id %>?_method=PUT" method = "POST">
+                    <div class = "form-group">
+                        <input class = "form-control" type = "text" name = "beach[name]" id="name" value ="<%= beach.name %>">   
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="beach[location]" id="location" value="<%= beach.location %>">
+                    </div>
+                    <div class = "form-group">
+                        <input class = "form-control"  type = "text" name = "beach[image]" id="image" value ="<%= beach.image %>">    
+                    </div>
+                    <div class = "form-group">
+                        <input class = "form-control"  type = "text" name = "beach[stars]" id="stars" value ="<%= beach.stars %>">    
+                    </div>
+                    <div class = "form-group">
+                        <input class = "form-control"  type = "text" name = "beach[description]" id="description" value ="<%= beach.description %>">    
+                    </div>
+                    <button class ="btn btn-lg btn-primary btn-block">Submit!</button>
+                </form>  
+                <a href = "/ttbeaches2" style = "position:fixed; margin-top:40px">Click to go back!</a>
+            </div>
+        </div>
+    </div>
+
+<% include ../partials/footerNew %>

@@ -1,0 +1,104 @@
+<% include ../partials/headerContent%>
+    <div class = "container">
+        <a class = "hiddenLink" href="#">Add a new beach!</a>
+        <div class = "row">
+            <div class = "col-md-3">
+                <div class ="list-group">
+                    <li class ="list-group-item active">Info 1</li>
+                    <li class ="list-group-item">Info 2</li>
+                    <li class ="list-group-item">Info 2</li>
+                </div>
+                <div id="map"></div>
+            </div>
+            <div class ="col-md-9">
+                <div class= "thumbnail">
+                    <img class="image-responsive show-image" src="<%=beach.image%>">
+                    <div class="caption-full">
+                        <h4 class = "pull-right">Free Entry</h4>
+                        <h4><a><%=beach.name%></a></h4>
+                        <p><%= beach.description %></p>
+                        <p><em>Submited By <%= beach.author.username %></em></p>
+                        <% if(currentUser && beach.author.id.equals(currentUser._id)){%>
+                            <a class = "btn btn-xs btn-warning" href="/ttbeaches2/<%= beach._id%>/edit">Edit</a>
+                            <form class="delete-form" action ="/ttbeaches2/<%=beach._id%>?_method=DELETE" method = "POST">
+                                <button class ="btn btn-xs btn-danger">Delete Beach</button>
+                            </form>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="well">
+                    <div class= "text-right">
+                        <a class ="btn btn-success" href = "/ttbeaches2/<%=beach._id%>/comments/new"> Add New Comment</a>    
+                    </div>
+                    <hr>
+                    <%beach.comments.forEach(function(comment){%>
+                        <div class="row">
+                            <div class= "col-md-12">
+                                <strong><%= comment.author.username %></strong>
+                                <span class= "pull-right">6 days ago</span>
+                                <p>
+                                    <%= comment.text %>
+                                </p>
+                                <% if(currentUser && comment.author.id.equals(currentUser._id)){%>
+                                    <form action = "/ttbeaches2/<%=beach._id%>/comments/<%=comment._id%>?_method=DELETE" method ="POST">
+                                        <input type="submit" class = "btn btn-xs btn-danger" value ="Delete Comment">
+                                    </form>
+                                <% }%>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+        <a class = "hiddenLink" href="#">Add a new beach!</a>
+        <p class = "hiddenLink" href="#">Add a new beach!</p>
+    </div>
+    <nav class ="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" id ="navFont" href ="/">Beach Quest</a>
+            </div>
+            <div class = "collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                  <%if(!currentUser){ %>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Sign Up</a></li>
+                    <% } else { %>
+                        <li><a href= "#">Signed in as <%= currentUser.username %></a></li>
+                        <li><a href="/logout">Logout</a></li>
+                      <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+      function initMap() {
+        var lat = <%= beach.lat %>;
+        var lng = <%= beach.lng %>;
+        var center = {lat: lat, lng: lng };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 8,
+            center: center,
+            scrollwheel: false
+        });
+        var contentString = `
+          <strong><%= beach.name %><br />
+          <%= beach.location %></strong>
+          <p><%= beach.description %></p>
+        `
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+        var marker = new google.maps.Marker({
+            position: center,
+            map: map
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+      }
+    </script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4hk6bMxqfV1NqQVleTD9sT_fVQ-Jxae0&callback=initMap"></script>
+
+<% include ../partials/footerContent %>

@@ -1,0 +1,32 @@
+<% include ../partials/headerContent %>
+
+    <div class = "container">
+        <div class="shift-form">
+            <div class = "row" >
+                <div class="shift-new">
+                    <h1 style = "text-align:center;">Add a Trinidad and Tobago Beach to the Collection!</h1>
+                    <form name ="myForm" onsubmit = "return validateForm()" action ="/ttbeaches2" method = "POST">
+                        <div class = "form-group">
+                            <input class = "form-control" type = "text" name = "name" placeholder ="Name of beach">   
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="location" id="location" placeholder="Please give location. Including island name, Trinidad or Tobago.">
+                        </div>
+                        <div class = "form-group">
+                            <input class = "form-control"  type = "text" name = "image" placeholder ="Img URL of beach pic you want to add!">    
+                        </div>
+                        <div class = "form-group">
+                            <input class = "form-control"  type = "text" name = "stars" placeholder ="Rate this beach. 1-5, 5 being the highest.">    
+                        </div>
+                        <div class = "form-group">
+                            <input class = "form-control"  type = "text" name = "description" placeholder ="Describe the beach.">    
+                        </div>
+                        <button class ="btn btn-lg btn-primary btn-block">Submit!</button>
+                    </form>  
+                    <a href = "/ttbeaches2" style = "position:fixed; margin-top:40px">Click to go back!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<% include ../partials/footerNew %>

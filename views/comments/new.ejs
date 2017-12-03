@@ -1,0 +1,19 @@
+<% include ../partials/headerNew %>
+
+    <div class = "container">
+        <div class = "row" >
+            
+            <div style = "width:75%; margin: 45px auto;">
+                <h1 style = "text-align:center;">Add New Comment for <%= beach.name %></h1>
+                <form action="/ttbeaches2/<%= beach._id %>/comments" method = "POST">
+                    <div class = "form-group">
+                        <input class = "form-control" type = "text" name = "comment[text]" placeholder ="Type your comment here">   
+                    </div>
+                    <button class ="btn btn-lg btn-primary btn-block">Submit!</button>
+                </form>  
+                <a href ="/ttbeaches2" style = "position:fixed; margin-top:40px">Click to go back!</a>
+            </div>
+        </div>
+    </div>
+
+<% include ../partials/footerNew %>

@@ -1,0 +1,21 @@
+<% include ./partials/headerContent%>
+<div class="shift-form">
+    <div class="row">
+        <h1 style="text-align: center">Login or <a href = "/register"> (Sign Up!)</a> </h1>
+        <div class= "shift">
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="username" placeholder="username">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="password" placeholder="password">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Login</button>
+                </div>
+            </form>
+            <a href="/ttbeaches2">Go Back</a>
+        </div>
+    </div>
+</div>
+<% include ./partials/footerContent%>

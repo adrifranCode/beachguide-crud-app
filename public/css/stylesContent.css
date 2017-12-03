@@ -1,0 +1,256 @@
+html, body {    
+    margin:0;
+    padding:0;
+    height:100%;
+    width:100%;
+    background: #A1FFCE;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0c4295, #80D5C1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0c4295, #80D5C1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: 100% auto;
+}
+
+span {
+    display:inline-block;
+    position: static;
+    font-size:20px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+#fontChange{
+    margin-top:19px;
+    
+}
+
+h1{
+  color:white;
+  text-shadow:1px 1px 1px black;
+}
+a:focus, a:hover {
+  color:grey;
+  text-decoration:none;
+}
+a{
+  color:black;
+}
+.hiddenLink{      /* Hide and move link text away from top of page until needed.*/
+  position:relative;
+  right:10000px;   
+}
+
+.pseudo-circle, .trigger {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  right: 100px;
+  bottom: 10px;
+  z-index: 99998;
+  cursor: pointer;
+  transform-origin: 50% 50%; 
+}
+
+.pseudo-circle {
+  opacity: 0;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.0, 0.0, 0.2, 1), opacity 0.1s;
+}
+.close{
+    
+    opacity:1;
+    font-family: 'Marcellus SC', serif;
+    
+}
+#link{
+    left:1px;
+}
+
+
+#link2{
+    right:1px;
+}
+
+#navFont{
+  font-family: 'Faster One', cursive;  
+  
+}
+
+.shift{
+  width: 30%; 
+  margin: 25px auto;
+  
+}
+
+.shift-new{
+  width:75%; margin: 45px auto;
+}
+
+.shift-form{
+  margin: 21vh auto;
+}
+.navbar-default {
+    background-color: #5099B0;
+    border-color: #5099B0;
+    -webkit-box-shadow: 0 8px 6px 9px #5099B0;
+    -moz-box-shadow: 0 8px 6px 9px #5099B0;
+    box-shadow: 0 8px 6px 9px #5099B0;
+}
+.navbar-default .navbar-nav > li > a {
+   color: white; /*Change active text color here*/
+}
+.navbar-default .navbar-brand {
+    color: #edf4f4;
+}
+
+.trigger {
+  text-align: center;
+  color: #fff;
+  line-height: 56px;
+  background-color: #5099B0;
+  transition: transform 0.15s cubic-bezier(0.4, 0.0, 1, 1), opacity 0.1s 0.1s, box-shadow 0.3s;
+  opacity: 1;
+  right: 50px;
+  bottom: 50px;
+  position: fixed;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.12), 0 6px 6px rgba(0, 0, 0, 0.24);
+  z-index: 99999;
+  
+}
+
+.pseudo-circle.open {
+  transition-delay: .15s;
+  transform: scale(45);
+  opacity: 1;
+}
+.trigger.open {
+  transform: translate(-50px, 40px);
+  opacity: 0;
+}
+.trigger.open i {
+  opacity: 0;
+}
+.trigger:hover {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.12), 0 12px 12px rgba(0, 0, 0, 0.24);
+}
+.dialog {
+  width: 100vw;
+  height: 100vh;
+  background-color: #5099B0;
+}
+.toolbar {
+  
+  display:none;
+  position: fixed;
+  text-align:left;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  overflow: hidden;
+  padding: 20px;
+}
+.toolbar a {
+  position: absolute;
+  z-index: 999999;
+  border: 0;
+  background: transparent;
+  font-size: 16px;
+  text-transform: uppercase;
+  top: 50%;
+  color: #fff;
+  transform: translateY(-50%);
+  padding: 10px 20px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  outline: none;
+}
+.wrapper{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.caption{
+  text-align:center;
+  text-decoration:none;
+  color: black;
+   
+}
+
+.details{
+    display:none;
+    position:relative;
+    top:-135px;
+    margin-bottom:-28px;
+    background: #f6fafd;
+    
+  
+    text-align:center;
+    transition: 0.5s ease ;
+    
+}
+
+.thumbnail {
+    box-shadow: -3px 5px 15px #0c4295;
+    
+}
+
+.thumbnail .caption-full{
+  padding: 9px;
+}
+
+.show-image{
+  width:100%;  
+}
+
+.delete-form{
+  display:inline;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+    margin-bottom:20px;
+    -webkit-box-shadow: 0px 3px 5px #0C579D;
+    -moz-box-shadow:  0px 3px 5px #0C579D;
+    box-shadow:  0px 3px 5px #0C579D;
+}
+
+
+
+@media only screen and (max-width:900px){
+    .trigger{
+      opacity:0.9;
+      right: 30px;
+      bottom: 30px;
+    }
+    .pseudo-circle, .trigger {
+      width: 76px;
+      height: 76px;
+    }
+    #fontChange{
+    margin-top:5px;
+    
+    }
+    .details{
+        top:-190px;
+    }
+    
+   
+}
+
+@media only screen and (max-width:400px){
+    .details{
+        top:-170px;
+    }
+}
+
+@media only screen and (min-width:901px){
+     span{
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+}
+

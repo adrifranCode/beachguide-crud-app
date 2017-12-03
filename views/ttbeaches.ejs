@@ -1,0 +1,31 @@
+<% include partials/header%>
+    <div class= "container">
+        <header class ="jumbotron">
+            <div class= "container">
+                <h1>Trinidad & Tobago Beaches!</h1>
+                <p> Trinidad and Tobago beaches rated so you can enjoy!</p>
+                <p>
+                    <a class ="btn btn-primary btn-lg" href = "/ttbeaches/new"> Add a new T&T beach to the list!</a>
+                </p>
+            </div>
+        </header>
+        
+        <div class="row text-center">
+            <% beaches.forEach(function(beaches){ %>
+                <div class="col-md-3 col-sml-6">
+                        <div class ="thumbnail">
+                            <img src="<%=beaches.image%>">
+                            <div class ="caption">
+                                <h4><%=beaches.name%></h4>   
+                            </div>
+                        </div>
+                </div>
+            <% }); %>  
+        </div>
+
+        
+
+        
+    </div>
+
+<% include partials/footer %>
